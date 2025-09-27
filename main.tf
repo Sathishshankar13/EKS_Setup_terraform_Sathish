@@ -23,10 +23,11 @@ data "aws_subnets" "public" {
 
 
 # Fetch existing IGW attached to the default VPC
-data "aws_internet_gateway" "default_igw" {
-  filter {
-    name   = "attachment.vpc-id"
-    values = [data.aws_vpc.default_vpc.id]
+resource "aws_internet_gateway" "default_igw" {
+  vpc_id = data.aws_vpc.default_vpc.id
+
+  tags = {
+    Name = "default-igw"
   }
 }
 
