@@ -21,23 +21,13 @@ data "aws_subnets" "public" {
   }
 }
 
-
-# Fetch existing IGW attached to the default VPC
-resource "aws_internet_gateway" "default_igw" {
-  vpc_id = data.aws_vpc.default_vpc.id
-
-  tags = {
-    Name = "default-igw"
-  }
-}
-
 # Route Table for public subnets
 resource "aws_route_table" "public_rt" {
   vpc_id = data.aws_vpc.default_vpc.id
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.default_igw.id
+    gateway_id = var.existing_igw_id
   }
 
   tags = {
