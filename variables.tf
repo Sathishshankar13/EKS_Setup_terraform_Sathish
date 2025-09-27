@@ -13,5 +13,5 @@ variable "additional_policy_name" {
 variable "existing_igw_id" {
   description = "ID of existing internet gateway attached to the VPC"
   type        = string
-  default     = "igw-072bc09258e3f7347"
+  default     = "igw-019ee6d93966bc85c"
 }
