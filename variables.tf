@@ -4,3 +4,9 @@ variable "ssh_key_name" {
   type        = string
   default     = "DevOps-Shack"
 }
+variable "additional_policy_name" {
+  type        = string
+  description = "The name of the additional IAM policy"
+  default     = "loadbalancer-policy"
+}
+
