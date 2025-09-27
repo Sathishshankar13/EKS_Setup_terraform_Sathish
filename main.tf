@@ -136,7 +136,7 @@ resource "aws_eks_addon" "ebs_csi_driver" {
 resource "aws_eks_node_group" "devopsshack" {
   cluster_name    = aws_eks_cluster.devopsshack.name
   node_group_name = "devopsshack-node-group"
-  node_role_arn   = aws_iam_role.devopsshack_worker_node_role.arn
+  node_role_arn   = aws_iam_role.devopsshack_node_group_role.arn
   subnet_ids      = data.aws_subnets.public.ids
 
   scaling_config {
